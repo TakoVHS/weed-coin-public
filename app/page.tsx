@@ -38,6 +38,7 @@ export default function Page() {
   const live = isPaymentFlowLive(config);
   const telegramReady = Boolean(config.telegramUrl);
   const xReady = Boolean(config.xUrl);
+  const launchWalletReady = Boolean(config.launchWallet);
   const mintReady = Boolean(config.tokenMint);
   const treasuryReady = Boolean(config.treasuryWallet);
 
@@ -81,6 +82,13 @@ export default function Page() {
       href: config.xUrl || '/launch-notes',
       action: xReady ? 'Open X' : 'Track public posts',
       external: xReady,
+    },
+    {
+      title: 'Launch wallet',
+      value: launchWalletReady ? 'Published' : 'Pending',
+      href: '/access',
+      action: 'Check launch wallet',
+      external: false,
     },
     {
       title: 'Token mint',
@@ -177,6 +185,7 @@ export default function Page() {
             <div className="wcx-console-links">
               <span>Official route</span>
               <strong>{config.siteUrl}</strong>
+              <p>Launch wallet: {config.launchWallet || 'Pending launch wallet publication'}</p>
               <p>Mint: {config.tokenMint || 'Pending official publication'}</p>
               <p>Treasury: {config.treasuryWallet || 'Pending treasury publication'}</p>
             </div>

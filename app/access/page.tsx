@@ -11,6 +11,7 @@ export default function AccessPage() {
   const checks = [
     ['Official Telegram', config.telegramUrl ? 'ready' : 'missing'],
     ['Official X', config.xUrl ? 'ready' : 'missing'],
+    ['Launch wallet', config.launchWallet ? 'ready' : 'missing'],
     ['Token mint', config.tokenMint ? 'ready' : 'missing'],
     ['Treasury wallet', config.treasuryWallet ? 'ready' : 'missing'],
     ['Wallet connect', config.walletConnectEnabled ? 'enabled' : 'disabled'],
@@ -22,6 +23,7 @@ export default function AccessPage() {
     ['Network / standard', `${config.tokenNetwork} / ${config.tokenStandard}`],
     ['Total supply', `${config.totalSupply.toLocaleString('en-US')} WEED`],
     ['Initial circulation', `${config.circulatingSupply.toLocaleString('en-US')} WEED`],
+    ['Launch wallet', config.launchWallet || pending],
     ['Mint status', config.tokenMint || pending],
     ['Treasury status', config.treasuryWallet || pending],
   ] as const;
@@ -93,6 +95,7 @@ export default function AccessPage() {
             <h2>Route to live checkout.</h2>
             <ol className="wcx-list">
               <li>Confirm `TOKEN_MINT` and `TREASURY_WALLET`</li>
+              <li>Keep `LAUNCH_WALLET` separate from `TOKEN_MINT` so the site does not label the operator wallet as the token mint</li>
               <li>Enable wallet-connect and checkout in environment</li>
               <li>Publish official mint confirmation through the public domain</li>
               <li>Open holder access only after verification passes</li>

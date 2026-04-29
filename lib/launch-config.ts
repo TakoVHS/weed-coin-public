@@ -8,6 +8,7 @@ export type PublicLaunchConfig = {
   xUrl: string;
   tokenName: string;
   tokenSymbol: string;
+  launchWallet: string;
   tokenMint: string;
   treasuryWallet: string;
   paymentFlowMode: 'disabled' | 'preview' | 'live';
@@ -50,6 +51,7 @@ function launchMode(value: string | undefined): LaunchMode {
 }
 
 export function getPublicLaunchConfig(): PublicLaunchConfig {
+  const launchWallet = clean(process.env.LAUNCH_WALLET, '');
   const tokenMint = clean(process.env.TOKEN_MINT, TOKEN_VALUES.TOKEN_MINT);
   const treasuryWallet = clean(process.env.TREASURY_WALLET, TOKEN_VALUES.TREASURY_WALLET);
   return {
@@ -58,6 +60,7 @@ export function getPublicLaunchConfig(): PublicLaunchConfig {
     xUrl: clean(process.env.PUBLIC_X_URL, ''),
     tokenName: clean(process.env.TOKEN_NAME, 'Weed Coin'),
     tokenSymbol: clean(process.env.TOKEN_SYMBOL, 'WEED'),
+    launchWallet,
     tokenMint,
     treasuryWallet,
     paymentFlowMode: paymentMode(process.env.PAYMENT_FLOW_MODE),
@@ -81,7 +84,7 @@ export function getPublicLaunchConfig(): PublicLaunchConfig {
 }
 
 export function isLaunchConfigComplete(config: PublicLaunchConfig): boolean {
-  return Boolean(config.telegramUrl && config.xUrl && config.tokenMint && config.treasuryWallet);
+  return Boolean(config.telegramUrl && config.xUrl && config.launchWallet && config.tokenMint && config.treasuryWallet);
 }
 
 export function isPaymentFlowLive(config: PublicLaunchConfig): boolean {
