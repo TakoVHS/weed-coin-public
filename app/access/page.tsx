@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getPublicLaunchConfig, isLaunchConfigComplete, isPaymentFlowLive } from '@/lib/launch-config';
-import { BUYER_PROCESS, HOLDER_SERVICES, INFRASTRUCTURE_LAYERS } from '@/lib/token-values';
+import { BUYER_PROCESS, HOLDER_SERVICES, INFRASTRUCTURE_LAYERS, REVIEW_CHAIN, REVENUE_LANES } from '@/lib/token-values';
 
 export default function AccessPage() {
   const config = getPublicLaunchConfig();
@@ -63,9 +63,7 @@ export default function AccessPage() {
               <p className="wcx-kicker">Readiness checks</p>
               <h2>Every public prerequisite stays visible.</h2>
             </div>
-            <p>
-              The access desk is where a buyer sees whether social links, token identifiers, and purchase rails are genuinely ready.
-            </p>
+            <p>The access desk is where a buyer sees whether official links, token identifiers, and payment rails are genuinely ready.</p>
           </div>
 
           <div className="wcx-doc-grid-3">
@@ -107,8 +105,39 @@ export default function AccessPage() {
             <div className="wcx-action-row">
               <Link className="wcx-btn wcx-btn-primary" href="/launch-notes">Open launch notes</Link>
               <Link className="wcx-btn" href="/risk">Read risk boundary</Link>
+              <Link className="wcx-btn" href="/">Review product map</Link>
               {config.telegramUrl ? <a className="wcx-btn" href={config.telegramUrl}>Official Telegram</a> : null}
               {config.xUrl ? <a className="wcx-btn" href={config.xUrl}>Official X</a> : null}
+            </div>
+          </article>
+        </section>
+
+        <section className="wcx-doc-dual">
+          <article className="wcx-doc-panel">
+            <p className="wcx-kicker">What buyers are really buying into</p>
+            <h2>Access and premium routes.</h2>
+            <div className="wcx-doc-mini-stack">
+              {REVENUE_LANES.map((lane) => (
+                <article className="wcx-doc-card" key={lane.title}>
+                  <span>{lane.state}</span>
+                  <strong>{lane.title}</strong>
+                  <p>{lane.body}</p>
+                </article>
+              ))}
+            </div>
+          </article>
+
+          <article className="wcx-doc-panel">
+            <p className="wcx-kicker">Editorial gate</p>
+            <h2>No public claim ships without review.</h2>
+            <div className="wcx-doc-mini-stack">
+              {REVIEW_CHAIN.map((item) => (
+                <article className="wcx-doc-card" key={item.title}>
+                  <span>review</span>
+                  <strong>{item.title}</strong>
+                  <p>{item.body}</p>
+                </article>
+              ))}
             </div>
           </article>
         </section>

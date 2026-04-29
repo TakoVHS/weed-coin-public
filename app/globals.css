@@ -160,6 +160,11 @@ textarea.prompt { width: 100%; min-height: 150px; border-radius: 18px; border: 1
   letter-spacing: 0;
 }
 
+.wcx-page p,
+.wcx-page li {
+  line-height: 1.65;
+}
+
 .wcx-hero {
   position: relative;
   min-height: 96vh;
@@ -258,6 +263,12 @@ textarea.prompt { width: 100%; min-height: 150px; border-radius: 18px; border: 1
 .wcx-brand strong,
 .wcx-brand small {
   display: block;
+}
+
+.wcx-card-note {
+  margin-top: 10px;
+  color: rgba(238, 242, 235, .72);
+  font-size: 14px;
 }
 
 .wcx-brand strong {

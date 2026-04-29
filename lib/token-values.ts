@@ -16,6 +16,94 @@ export const TOKEN_VALUES = {
   TREASURY_POLICY: 'Treasury address will be published only through the official launch announcement',
 } as const;
 
+export const PRODUCT_PILLARS = [
+  {
+    title: 'Education vault',
+    state: 'Live now',
+    body: 'A public knowledge layer for token literacy, wallet hygiene, launch notes, risk reading, and official route verification.',
+    action: 'Start with launch notes and risk before any wallet action.',
+  },
+  {
+    title: 'Holder desk',
+    state: 'Prepared',
+    body: 'A premium holder-facing lane for verified announcements, gated drops, support routing, and future token-gated unlocks.',
+    action: 'Opens only after mint, treasury, and wallet checks are confirmed.',
+  },
+  {
+    title: 'Creator lab',
+    state: 'Buildable',
+    body: 'A structured lane for AI-assisted campaign assets, creator prompts, visual kits, launch packs, and repeatable content systems.',
+    action: 'Used to turn community attention into branded output rather than chaotic posting.',
+  },
+  {
+    title: 'Partner desk',
+    state: 'Commercial',
+    body: 'A direct path for brands, affiliates, merch operators, event partners, and growth collaborators who need a verified handoff.',
+    action: 'Designed for operators who want a business route instead of Telegram noise.',
+  },
+] as const;
+
+export const BUYER_PERSONAS = [
+  {
+    title: 'Retail buyer',
+    body: 'Needs clarity on token purpose, supply structure, official links, and how to avoid fake checkout or wrong wallet instructions.',
+  },
+  {
+    title: 'Holder member',
+    body: 'Wants gated access, project updates, premium drops, private support lanes, and confidence that the route is official.',
+  },
+  {
+    title: 'Creator / ambassador',
+    body: 'Needs templates, briefs, campaign packs, education rails, moderation rules, and an actual system for contribution.',
+  },
+  {
+    title: 'Partner / operator',
+    body: 'Needs a concise commercial overview: what the token unlocks, where the audience comes from, and what business lanes exist.',
+  },
+] as const;
+
+export const REVENUE_LANES = [
+  {
+    title: 'Membership access',
+    state: 'Safe-mode ready',
+    body: 'Structured paid or token-gated access to briefs, gated content, premium updates, and member-only operating materials.',
+  },
+  {
+    title: 'Partner campaigns',
+    state: 'Sales lane',
+    body: 'Creator bundles, co-branded drops, event collabs, premium placement, and operator-facing handoff packs.',
+  },
+  {
+    title: 'Creator products',
+    state: 'Content lane',
+    body: 'Prompt packs, visuals, templates, education sets, and high-signal digital products built around the Weed Coin brand system.',
+  },
+  {
+    title: 'Holder upgrades',
+    state: 'Post-launch',
+    body: 'Private vault, gated desk, verified signals, launch briefings, and reward loops that rely on holder verification rather than hype.',
+  },
+] as const;
+
+export const REVIEW_CHAIN = [
+  {
+    title: 'Research',
+    body: 'Validates claims, token facts, routes, and commercial assumptions before anything becomes public copy.',
+  },
+  {
+    title: 'Security',
+    body: 'Checks links, anti-scam language, wallet instructions, checkout claims, and anything that could create public risk.',
+  },
+  {
+    title: 'Coders',
+    body: 'Implement the approved structure, CTA logic, route behavior, and status surfaces without weakening safety rules.',
+  },
+  {
+    title: 'CGO / owner',
+    body: 'Approves final wording, launch state, and what may be shown as live versus prepared.',
+  },
+] as const;
+
 export const TOKEN_ALLOCATION = [
   { label: 'Liquidity', amount: TOKEN_VALUES.ALLOCATION_LIQUIDITY, percent: 30, purpose: 'Market depth and launch liquidity support' },
   { label: 'Community', amount: TOKEN_VALUES.ALLOCATION_COMMUNITY, percent: 25, purpose: 'Holder campaigns, quests, rewards, and public community growth' },
