@@ -1,0 +1,3 @@
+weed-coin production refresh requested
+main contains buyer-facing public site update
+verify https://weed-coin.cash/ after DigitalOcean deploy
