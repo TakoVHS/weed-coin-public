@@ -2,13 +2,18 @@ import Link from 'next/link';
 import { getPublicLaunchConfig, isPaymentFlowLive } from '@/lib/launch-config';
 import {
   ACCESS_LADDER,
+  BUYER_CTA_SEQUENCE,
   BUYER_PERSONAS,
+  BUYER_PRECHECKS,
   BUYER_PROCESS,
   HOLDER_SERVICES,
   INFRASTRUCTURE_LAYERS,
+  MONETIZATION_OFFERS,
+  PREMIUM_DESK_STACK,
   PRODUCT_PILLARS,
   REVIEW_CHAIN,
   REVENUE_LANES,
+  TOKEN_UTILITY_RULES,
   TOKEN_ALLOCATION,
   TOKEN_VALUES,
   formatTokenAmount,
@@ -47,25 +52,6 @@ export default function Page() {
     ['Total supply', formatTokenAmount(config.totalSupply)],
     ['Initial circulation', formatTokenAmount(config.circulatingSupply)],
     ['Access mode', live ? 'LIVE' : 'SAFE-MODE'],
-  ] as const;
-
-  const tokenUtility = [
-    {
-      title: 'Access and verification',
-      body: 'The token acts as the entrance layer for holder routing, gated updates, private releases, and verified membership states.',
-    },
-    {
-      title: 'Commercial distribution',
-      body: 'The site is built to convert attention into memberships, premium drops, partner lanes, and future token-gated offers.',
-    },
-    {
-      title: 'Education and retention',
-      body: 'The public layer teaches safer wallet behavior and token literacy first, then moves verified users into deeper product loops.',
-    },
-    {
-      title: 'What stays off',
-      body: 'Anything that cannot be verified yet stays in safe-mode. No fake “buy now” theatre and no false unlocks.',
-    },
   ] as const;
 
   const officialLinks = [
@@ -260,7 +246,7 @@ export default function Page() {
           </div>
 
           <div className="wcx-grid wcx-grid-shop">
-            {tokenUtility.map((item) => (
+            {TOKEN_UTILITY_RULES.map((item) => (
               <article className="wcx-card wcx-card-emerald" key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
@@ -302,10 +288,32 @@ export default function Page() {
           </div>
 
           <div className="wcx-grid wcx-grid-shop wcx-grid-margin">
+            {PREMIUM_DESK_STACK.map((item) => (
+              <article className="wcx-card wcx-card-emerald" key={item.title}>
+                <span className="wcx-pill">{item.state}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="wcx-grid wcx-grid-shop wcx-grid-margin">
             {BUYER_PERSONAS.map((item) => (
               <article className="wcx-card wcx-card-world" key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="wcx-grid wcx-grid-shop wcx-grid-margin">
+            {MONETIZATION_OFFERS.map((item) => (
+              <article className="wcx-card wcx-card-gold" key={item.title}>
+                <span className="wcx-pill">{item.state}</span>
+                <h3>{item.title}</h3>
+                <p>{item.deliverable}</p>
+                <p className="wcx-card-note">For: {item.buyer}</p>
+                <p className="wcx-card-note">{item.payment}</p>
               </article>
             ))}
           </div>
@@ -392,6 +400,25 @@ export default function Page() {
                   <h3>Step {index + 1}</h3>
                   <p>{step}</p>
                 </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="wcx-grid wcx-grid-shop wcx-grid-margin">
+            {BUYER_PRECHECKS.map((item) => (
+              <article className="wcx-card wcx-card-world" key={item}>
+                <h3>Pre-check</h3>
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="wcx-grid wcx-grid-shop wcx-grid-margin">
+            {BUYER_CTA_SEQUENCE.map((item) => (
+              <article className="wcx-card wcx-card-gold" key={item.step}>
+                <span className="wcx-tier">{item.step}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
               </article>
             ))}
           </div>

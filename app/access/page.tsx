@@ -1,6 +1,16 @@
 import Link from 'next/link';
 import { getPublicLaunchConfig, isLaunchConfigComplete, isPaymentFlowLive } from '@/lib/launch-config';
-import { BUYER_PROCESS, HOLDER_SERVICES, INFRASTRUCTURE_LAYERS, REVIEW_CHAIN, REVENUE_LANES } from '@/lib/token-values';
+import {
+  BUYER_CTA_SEQUENCE,
+  BUYER_PRECHECKS,
+  BUYER_PROCESS,
+  HOLDER_SERVICES,
+  INFRASTRUCTURE_LAYERS,
+  MONETIZATION_OFFERS,
+  PREMIUM_DESK_STACK,
+  REVIEW_CHAIN,
+  REVENUE_LANES,
+} from '@/lib/token-values';
 
 export default function AccessPage() {
   const config = getPublicLaunchConfig();
@@ -131,6 +141,52 @@ export default function AccessPage() {
           </article>
 
           <article className="wcx-doc-panel">
+            <p className="wcx-kicker">Premium desk</p>
+            <h2>What the access layer is preparing.</h2>
+            <div className="wcx-doc-mini-stack">
+              {PREMIUM_DESK_STACK.map((item) => (
+                <article className="wcx-doc-card" key={item.title}>
+                  <span>{item.state}</span>
+                  <strong>{item.title}</strong>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </article>
+        </section>
+
+        <section className="wcx-doc-dual">
+          <article className="wcx-doc-panel">
+            <p className="wcx-kicker">Actual offers</p>
+            <h2>What can be sold without pretending mint is live.</h2>
+            <div className="wcx-doc-mini-stack">
+              {MONETIZATION_OFFERS.map((item) => (
+                <article className="wcx-doc-card" key={item.title}>
+                  <span>{item.state}</span>
+                  <strong>{item.title}</strong>
+                  <p>{item.deliverable}</p>
+                </article>
+              ))}
+            </div>
+          </article>
+
+          <article className="wcx-doc-panel">
+            <p className="wcx-kicker">Action sequence</p>
+            <h2>What the next safe step actually is.</h2>
+            <div className="wcx-doc-mini-stack">
+              {BUYER_CTA_SEQUENCE.map((item) => (
+                <article className="wcx-doc-card" key={item.step}>
+                  <span>{item.step}</span>
+                  <strong>{item.title}</strong>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </article>
+        </section>
+
+        <section className="wcx-doc-dual">
+          <article className="wcx-doc-panel">
             <p className="wcx-kicker">Editorial gate</p>
             <h2>No public claim ships without review.</h2>
             <div className="wcx-doc-mini-stack">
@@ -143,18 +199,32 @@ export default function AccessPage() {
               ))}
             </div>
           </article>
+
+          <article className="wcx-doc-panel">
+            <p className="wcx-kicker">Pre-checks</p>
+            <h2>What has to be true before any payment flow.</h2>
+            <div className="wcx-doc-mini-stack">
+              {BUYER_PRECHECKS.map((item) => (
+                <article className="wcx-doc-card" key={item}>
+                  <span>pre-check</span>
+                  <strong>Gate</strong>
+                  <p>{item}</p>
+                </article>
+              ))}
+            </div>
+          </article>
         </section>
 
         <section className="wcx-doc-dual">
           <article className="wcx-doc-panel">
-            <p className="wcx-kicker">Holder services</p>
-            <h2>What opens after verification.</h2>
+            <p className="wcx-kicker">Editorial gate</p>
+            <h2>Holder services after verification.</h2>
             <div className="wcx-doc-mini-stack">
-              {HOLDER_SERVICES.map((service) => (
-                <article className="wcx-doc-card" key={service.title}>
-                  <span>{service.state}</span>
-                  <strong>{service.title}</strong>
-                  <p>{service.body}</p>
+              {HOLDER_SERVICES.map((item) => (
+                <article className="wcx-doc-card" key={item.title}>
+                  <span>{item.state}</span>
+                  <strong>{item.title}</strong>
+                  <p>{item.body}</p>
                 </article>
               ))}
             </div>

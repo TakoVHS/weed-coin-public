@@ -66,22 +66,126 @@ export const REVENUE_LANES = [
   {
     title: 'Membership access',
     state: 'Safe-mode ready',
-    body: 'Structured paid or token-gated access to briefs, gated content, premium updates, and member-only operating materials.',
+    body: 'Structured access to premium notes, private briefings, launch packs, and member-only operating materials sold as subscriptions or token-gated bundles.',
   },
   {
     title: 'Partner campaigns',
     state: 'Sales lane',
-    body: 'Creator bundles, co-branded drops, event collabs, premium placement, and operator-facing handoff packs.',
+    body: 'Creator bundles, co-branded drops, event collabs, premium placement, and operator-facing handoff packs sold as real commercial offers.',
   },
   {
     title: 'Creator products',
     state: 'Content lane',
-    body: 'Prompt packs, visuals, templates, education sets, and high-signal digital products built around the Weed Coin brand system.',
+    body: 'Prompt packs, visuals, templates, education sets, and high-signal digital products built around the Weed Coin brand system and sold as downloadable assets.',
   },
   {
     title: 'Holder upgrades',
     state: 'Post-launch',
-    body: 'Private vault, gated desk, verified signals, launch briefings, and reward loops that rely on holder verification rather than hype.',
+    body: 'Private vault, gated desk, verified signals, launch briefings, and reward loops that rely on holder verification rather than hype or vanity badges.',
+  },
+] as const;
+
+export const PREMIUM_DESK_STACK = [
+  {
+    title: 'Member briefings',
+    state: 'Can launch first',
+    body: 'Recurring premium briefings, trend notes, curated launch notes, and operator memos sold as paid subscriptions before full token-gating is active.',
+  },
+  {
+    title: 'Holder vault',
+    state: 'After mint',
+    body: 'A token-gated release shelf for premium notes, visual drops, campaign packs, and private archive material available only after wallet verification.',
+  },
+  {
+    title: 'Partner concierge',
+    state: 'Sales-controlled',
+    body: 'A direct intake for merch, collaborations, events, creator placements, and white-label business discussions routed through a controlled desk.',
+  },
+  {
+    title: 'Support priority lane',
+    state: 'Operator desk',
+    body: 'Escalated support for verified holders, partners, and premium members through Telegram routing and owner-approved replies.',
+  },
+] as const;
+
+export const MONETIZATION_OFFERS = [
+  {
+    title: 'Premium member brief',
+    state: 'Pre-mint offer',
+    buyer: 'Retail buyer / operator',
+    deliverable: 'A recurring paid briefing product: curated market notes, campaign breakdowns, launch memos, and operator commentary.',
+    payment: 'Can sell as subscription or controlled manual checkout before token-gating.',
+  },
+  {
+    title: 'Creator pack',
+    state: 'Pre-mint offer',
+    buyer: 'Creator / ambassador',
+    deliverable: 'Prompt packs, social copy packs, branded visuals, campaign kits, and execution-ready content assets.',
+    payment: 'Direct paid download or member-only bundle.',
+  },
+  {
+    title: 'Partner concierge',
+    state: 'Commercial lane',
+    buyer: 'Brand / event / merch operator',
+    deliverable: 'A verified intake lane for collaborations, placements, campaigns, affiliate deals, and premium partner routing.',
+    payment: 'Lead qualification first, commercial handoff second.',
+  },
+  {
+    title: 'Holder vault',
+    state: 'After mint',
+    buyer: 'Verified holder',
+    deliverable: 'Token-gated archive of premium notes, gated drops, future releases, and holder-only support routing.',
+    payment: 'Unlocked through verified wallet balance, not through vague promises.',
+  },
+] as const;
+
+export const BUYER_PRECHECKS = [
+  'Verify the official domain, Telegram, and X links before any buy decision.',
+  'Check launch wallet, treasury wallet, and token mint only on the public access desk.',
+  'Read the risk page before trusting community chatter or screenshots.',
+  'Treat safe-mode as a protection layer, not as a missing feature.',
+  'Do not pay for access unless the public route explicitly says that payment flow is live.',
+] as const;
+
+export const BUYER_CTA_SEQUENCE = [
+  {
+    step: '01',
+    title: 'Verify the route',
+    body: 'Start with the access desk, official links block, launch wallet, treasury wallet, and live status before any wallet action.',
+  },
+  {
+    step: '02',
+    title: 'Choose the lane',
+    body: 'Decide whether you are here as a buyer, holder, creator, or partner. Each lane has a different offer and different next action.',
+  },
+  {
+    step: '03',
+    title: 'Use safe-mode honestly',
+    body: 'If mint or payment flow is still pending, treat the site as pre-launch proof and education, not as a live checkout surface.',
+  },
+  {
+    step: '04',
+    title: 'Move only on official activation',
+    body: 'When mint, treasury, and payment route are published together, then the site can move from prepared state into live holder activation.',
+  },
+] as const;
+
+export const TOKEN_UTILITY_RULES = [
+  {
+    title: 'Access first',
+    body: 'The token is primarily an access key to premium shelves, member routing, holder-only briefings, and future gated releases.',
+  },
+  {
+    title: 'Service second',
+    body: 'The token supports premium services: creator packs, community missions, support priority, and operator-approved partner lanes.',
+  },
+  {
+    title: 'No fake yield',
+    body: 'The token is not positioned as passive income, guaranteed upside, or an automatic money machine.',
+  },
+  {
+    title: 'Proof-based activation',
+    body: 'Every deeper unlock depends on real wallet verification, official public links, and launch-state confirmation.',
   },
 ] as const;
 
